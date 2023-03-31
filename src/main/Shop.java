@@ -53,16 +53,29 @@ public class Shop {
             selectedOption = numbersScanner.nextInt();
             switch (selectedOption) {
                 case 1 -> showStock();
-                case 2 -> System.out.println();
-                case 3 -> System.out.println();
-                case 4 -> System.out.println();
-                case 5 -> System.out.println();
+                case 2 -> currentCustomer.showShoppingCart();
+                case 3 -> {
+                    currentCustomer.totalCartValue();
+                    System.out.println("You have to pay: " + currentCustomer.getCartValue() + " RON");
+                }
+                case 4 -> checkoutAndPay();
+                case 5 -> exitShop();
                 default -> System.out.println();
             }
         } while (selectedOption != 5);
     }
 
+    public void exitShop() {
+        if (currentCustomer.getCartValue() < 0) {
+            checkoutAndPay();
+        }
+        System.out.println("Thank you for choosing us. Goodbye!");
+    }
 
+    public void checkoutAndPay() {
+        currentCustomer.totalCartValue();
+        System.out.println("You have to pay " + currentCustomer.getCartValue() + " RON");
+    }
 
     public Product[] getStockOfProducts() {
         return stockOfProducts;
