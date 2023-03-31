@@ -39,15 +39,38 @@ public class Customer {
     }
 
     public void totalCartValue() {
+        cartValue = 0;
         if (!isCartEmpty()) {
             for (Product currentProduct : shoppingCart) {
                 if (currentProduct != null) {
                     cartValue = (long) (cartValue + currentProduct.getPriceOfProduct());
-                    System.out.println(cartValue);
                 }
             }
         }
     }
+
+    public void addToCart(Product currentProduct) {
+        int emptyIndex = findFirstEmptyIndex();
+        if(emptyIndex != -1){
+            shoppingCart[emptyIndex] = currentProduct;
+            System.out.println("You successfully added " + currentProduct.getNameOfProduct() + " in your cart!");
+        } else {
+            System.out.println("Your cart is full, please checkout and pay");
+        }
+    }
+
+    public int findFirstEmptyIndex() {
+        int firstEmptyIndex = -1;
+        for (int i = 0; i < shoppingCart.length; i++) {
+            if (shoppingCart[i] == null) {
+                firstEmptyIndex = i;
+                break;
+            }
+
+        }
+        return firstEmptyIndex;
+    }
+
 
     public String getClientName() {
         return clientName;
