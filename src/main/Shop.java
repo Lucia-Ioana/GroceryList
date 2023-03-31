@@ -1,5 +1,6 @@
 package main;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Shop {
@@ -89,6 +90,8 @@ public class Shop {
                 System.out.println("Insufficient money!");
             }
         }
+        currentCustomer.setCartValue(0);
+        Arrays.fill(currentCustomer.getShoppingCart(), null);
     }
 
     public void addProduct() {

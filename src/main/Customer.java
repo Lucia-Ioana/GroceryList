@@ -96,6 +96,14 @@ public class Customer {
         this.cartValue = cartValue;
     }
 
+    public Product[] getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(Product[] shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
