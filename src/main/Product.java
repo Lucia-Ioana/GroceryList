@@ -2,20 +2,13 @@ package main;
 
 public class Product {
    private String nameOfProduct;
-   private long priceOfProduct;
+   private double priceOfProduct;
 
-
-    public Product() {
-    }
-
-    public Product(String nameOfProduct, long priceOfProduct) {
+    public Product(String nameOfProduct, double priceOfProduct) {
         this.nameOfProduct = nameOfProduct;
         this.priceOfProduct = priceOfProduct;
     }
 
-    public void showProduct(){
-
-    }
 
     public String getNameOfProduct() {
         return nameOfProduct;
@@ -29,16 +22,15 @@ public class Product {
         return priceOfProduct;
     }
 
-    public void setPriceOfProduct(long priceOfProduct) {
+    public void setPriceOfProduct(double priceOfProduct) {
         this.priceOfProduct = priceOfProduct;
     }
-
 
     @Override
     public String toString() {
         return "Product{" +
                 "nameOfProduct='" + nameOfProduct + '\'' +
-                ", priceOfProduct=" + priceOfProduct/100 + " RON" +
+                ", priceOfProduct=" + priceOfProduct +
                 '}';
     }
 }
