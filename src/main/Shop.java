@@ -66,7 +66,7 @@ public class Shop {
     }
 
     public void exitShop() {
-        if (currentCustomer.getCartValue() < 0) {
+        if (currentCustomer.getCartValue() > 0) {
             checkoutAndPay();
         }
         System.out.println("Thank you for choosing us. Goodbye!");
@@ -74,8 +74,20 @@ public class Shop {
 
     public void checkoutAndPay() {
         currentCustomer.totalCartValue();
-        System.out.println("You have to pay " + currentCustomer.getCartValue() + " RON");
+        double totalCartValue = currentCustomer.getCartValue();
+        if (totalCartValue <= 0) {
+            System.out.println("You have to pay " + currentCustomer.getCartValue() + " RON");
+            System.out.print("Enter the amount you have to pay: ");
+            double amount = numbersScanner.nextDouble();
+            if (amount >= totalCartValue) {
+                double remainingAmount = amount - currentCustomer.getCartValue();
+                System.out.println("You have " + remainingAmount + " RON left");
+            } else {
+                System.out.println("Insufficient money");
+            }
+        }
     }
+
 
     public Product[] getStockOfProducts() {
         return stockOfProducts;

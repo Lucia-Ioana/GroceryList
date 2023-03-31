@@ -38,21 +38,16 @@ public class Customer {
         return isEmpty;
     }
 
-
     public void totalCartValue() {
-        if (isCartEmpty()) {
-            System.out.println("Your cart is Empty");
-        } else {
+        if (!isCartEmpty()) {
             for (Product currentProduct : shoppingCart) {
                 if (currentProduct != null) {
                     cartValue = (long) (cartValue + currentProduct.getPriceOfProduct());
                     System.out.println(cartValue);
                 }
             }
-
         }
     }
-
 
     public String getClientName() {
         return clientName;
